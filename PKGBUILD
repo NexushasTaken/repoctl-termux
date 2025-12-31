@@ -35,7 +35,7 @@ build() {
 
 package() {
   cd "${pkgname}-${pkgver}"
-  local pkgdir=$prefix
+  local pkgdir=$terdir
 
   # Install repoctl program
   install -Dm755 repoctl "${pkgdir}/usr/bin/repoctl"
