@@ -8,7 +8,7 @@ arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 url="https://github.com/cassava/repoctl"
 license=('MIT')
 depends=('pacman')
-makedepends=('go>=1.22.1' 'xz')
+makedepends=('golang>=1.22.1' 'xz-utils')
 options=('!strip')
 source=(https://github.com/cassava/repoctl/releases/download/v${pkgver}/repoctl-${pkgver}.tar.gz)
 md5sums=('ede438b0703064bf2a7aeded8ce47ebf')
@@ -35,6 +35,7 @@ build() {
 
 package() {
   cd "${pkgname}-${pkgver}"
+  local pkgdir=$prefix
 
   # Install repoctl program
   install -Dm755 repoctl "${pkgdir}/usr/bin/repoctl"
